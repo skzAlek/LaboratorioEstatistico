@@ -593,27 +593,23 @@ else:
     st.subheader("Interpretação")
 
     if abs(correlacao) < 0.2:
-    intensidade = "muito fraca"
+        intensidade = "muito fraca"
+    elif abs(correlacao) < 0.5:
+        intensidade = "moderada"
+    else:
+        intensidade = "forte"
 
-elif abs(correlacao) < 0.5:
-    intensidade = "moderada"
+    if correlacao > 0:
+        direcao = "positiva"
+    elif correlacao < 0:
+        direcao = "negativa"
+    else:
+        direcao = "nula"
 
-else:
-    intensidade = "forte"
-
-
-if correlacao > 0:
-    direcao = "positiva"
-elif correlacao < 0:
-    direcao = "negativa"
-else:
-    direcao = "nula"
-
-
-st.write(
-    f"A correlação indica uma relação linear {direcao} "
-    f"{intensidade} entre as variáveis."
-)
+    st.write(
+        f"A correlação indica uma relação linear {direcao} "
+        f"{intensidade} entre as variáveis."
+    )
 
     if inclinacao > 0:
         st.write(
@@ -621,14 +617,12 @@ st.write(
             f"em {variavel_x}, o modelo prevê um aumento médio de "
             f"{inclinacao:.4f} unidades em {variavel_y}."
         )
-
     elif inclinacao < 0:
         st.write(
             f"Interpretação da inclinação: para cada aumento de 1 unidade "
             f"em {variavel_x}, o modelo prevê uma redução média de "
             f"{abs(inclinacao):.4f} unidades em {variavel_y}."
         )
-
     else:
         st.write(
             f"Interpretação da inclinação: o modelo não indica mudança "
