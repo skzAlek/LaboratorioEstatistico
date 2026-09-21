@@ -70,7 +70,7 @@ CAPTURA DA APLICAÇÃO:
 
 
 
-!\[Aplicação funcionando](imagem/simulacao.png)
+![Aplicação funcionando](imagem/simulacao.png)
 
 
 
